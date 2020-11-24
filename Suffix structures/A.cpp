@@ -10,11 +10,11 @@ int main() {
  
     std::vector<int> p(s.size()), cnt(alphabet, 0), c(s.size());
     
-	for (char c : s) ++cnt[c];
+    for (char c : s) ++cnt[c];
     for (int i = 1; i < alphabet; ++i) cnt[i] += cnt[i - 1];
     for (int i = 0; i < s.size(); ++i) p[--cnt[s[i]]] = i;
     
-	c[p[0]] = 0;
+    c[p[0]] = 0;
     int classes = 1;
     for (int i = 1; i < s.size(); ++i) {
         if (s[p[i]] != s[p[i - 1]]) ++classes;
